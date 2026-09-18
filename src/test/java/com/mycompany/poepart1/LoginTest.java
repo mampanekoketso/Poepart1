@@ -39,17 +39,19 @@ public class LoginTest {
         user.setPassword("password");
         assertFalse(user.checkPasswordSensitivity());
     }
+    
     @Test
      public void testphoneNumberSuccess(){
         Login user = new Login();
-        user.setphoneNumber("+278389689");
+        user.setphoneNumber("+27838968901");
         assertTrue(user.checkphoneNumber());
      }
+    
      @Test
      public void testphoneNumberFailure(){
         Login user = new Login();
         user.setphoneNumber("08966553");
-        assertTrue(user.checkphoneNumber());
+        assertFalse(user.checkphoneNumber());
      }
      @Test
      public void testLoginSuccess(){
@@ -59,9 +61,29 @@ public class LoginTest {
      @Test
      public void testLoginFailure(){
         Login user = new Login("kyl_1", "Ch&&sec@ke99!", "Kyle", "Smith", "+27838968976");
-        assertTrue(user.loginUser("kyl_1", "wrongpassword"));
+        assertFalse(user.loginUser("kyl_1", "wrongpassword"));
      }
+     @Test 
+     public void testresgisterUserFailureMessage(){
+     Login user = new Login("kyle!!!!!!", "Ch&&sec@ke99!", "Kyle", "Smith", "+27838968976");
+     String expectedMessage =  "username is not correctly formatted; please ensure that your usernamecontain an underscore and is no more than five characters in length";
+             assertEquals(expectedMessage, user.registerUser());
      
+             
+     }   
+     @Test 
+     public void testUsernameExactlyLengthSize(){
+         Login user = new Login();
+         user.setUsername("ab_12");
+         assertTrue(user.checkUserName());
+     }
+     @Test 
+     public void testReturningLoginStatusSuccessMessage(){
+         Login user = new Login("kyl_1", "Ch&&sec@ke99!", "Kyle", "Smith", "+27838968976");
+          boolean loginSuccess = user.loginUser("kyl_1" , "Ch&&sec@ke99!");
+          String expectedWelcomeMessage = "Welcome Kyle,Smith it is great to see you again";
+          assertEquals(expectedWelcomeMessage, user.returnLoginStatus(loginSuccess));
+     }
 }
     
     

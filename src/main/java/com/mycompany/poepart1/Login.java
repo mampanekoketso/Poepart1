@@ -11,17 +11,17 @@ import java.util.regex.Pattern;
  */
 public class Login {
     private String username;
-    private String fisrtName;
+    private String firstName;
     private String password;
     private String surname;
     private String phoneNumber;
     
     public Login(String username, String password, String firstName, String surname, String phoneNumber){
         this.password = password;
-        this.password = surname;
-        this.password = firstName;
-        this.password = phoneNumber;
-        this.password = username;
+        this.surname = surname;
+        this.firstName = firstName;
+        this.phoneNumber = phoneNumber;
+        this.username = username;
     }
      public Login(){}
      public boolean checkUserName(){
@@ -39,7 +39,8 @@ public class Login {
      }
      public boolean checkphoneNumber(){
       String regex = "^\\+27[0-9]{9}$";
-      return phoneNumber !=null && Pattern.matches(regex, phoneNumber);
+      return phoneNumber !=null
+              && phoneNumber.matches("^\\+27\\d{9}$");
      }
      public String registerUser () {
          if (!checkUserName()){
@@ -51,7 +52,7 @@ public class Login {
          if (!checkPasswordSensitivity()){
              return " password is incorrectly formatted please ensure that the pasword contains at least 8 characters , a capital letter, a number, and a special character.";   
          }
-         return "User refistered successfully.";
+         return "User registered successfully.";
          
      }
      public boolean loginUser(String enteredUsername, String enteredPassword){
@@ -60,9 +61,9 @@ public class Login {
      }
      public String returnLoginStatus(boolean isLoggedIn){
          if (isLoggedIn){
-             String firstName = null;
              
-             return "Welcome" + firstName + "," + surname + "it is great to see you again";
+             
+             return "Welcome " + firstName + "," + surname + " it is great to see you again";
          }else{
              return "Username or password incorrect,please try again";
          }

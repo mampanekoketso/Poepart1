@@ -3,13 +3,13 @@
  */
 
 
-package com.mycompany.poepart2;
+package com.mycompany.poepart1;
 import java.util.Scanner;
 /**
  *
  * @author Student
  */
-public class POEPart2 {
+public class POEPart1{
 
     public static void main(String[] args) {
          Scanner scanner = new Scanner(System.in);

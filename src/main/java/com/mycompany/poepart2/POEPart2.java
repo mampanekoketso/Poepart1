@@ -3,7 +3,7 @@
  */
 
 
-package com.mycompany.poepart1;
+package com.mycompany.poepart2;
 import java.util.Scanner;
 /**
  *

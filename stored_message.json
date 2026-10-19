@@ -47,3 +47,10 @@
  "message": "Sample text",
  "messageHash": "46:1:SAMPLETEXT"
 }
+{
+ "messageId": "1414661550",
+ "messageNumber": 1,
+ "recipient": "+27718693002",
+ "message": "Sample text",
+ "messageHash": "14:1:SAMPLETEXT"
+}
